@@ -1,15 +1,18 @@
 extends Node2D
 class_name Character
 
-@onready var stats_comp = %Stats
+@export var char_data : CharacterData
 
-signal character_health_reached_zero
+@onready var health_comp = %HealthComp
+
+signal character_health_reached_min
 
 func _ready() -> void:
-	stats_comp.health_reached_zero.connect(on_health_reached_zero())
+	health_comp.init(char_data.health_data)
+	health_comp.health_reached_min.connect(on_health_reached_min())
 
 func take_damage(dmg: int) -> void:
-	stats_comp.take_damage(dmg)
+	health_comp.take_damage(dmg)
 
-func on_health_reached_zero():
-	character_health_reached_zero.emit()
+func on_health_reached_min():
+	character_health_reached_min.emit()
