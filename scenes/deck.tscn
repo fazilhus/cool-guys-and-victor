@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq5wiy3f6wmdl"]
+
+[ext_resource type="Texture2D" uid="uid://btd35bep818j8" path="res://Assets/cardBacks.png" id="1_8shuv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_omnog"]
+font_size = 30
+
+[node name="DeckControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -17.0
+offset_right = -14.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 53.0
+offset_right = 99.0
+offset_bottom = 180.0
+texture = ExtResource("1_8shuv")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 97.0
+offset_bottom = 52.0
+text = "Deck"
+label_settings = SubResource("LabelSettings_omnog")
+horizontal_alignment = 1
+vertical_alignment = 1

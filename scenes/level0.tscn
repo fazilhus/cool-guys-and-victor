@@ -1,6 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://buj5pv01hdlri"]
+[gd_scene load_steps=16 format=4 uid="uid://buj5pv01hdlri"]
 
-[ext_resource type="Texture2D" uid="uid://by10mtuocfn1c" path="res://Assets/tilemap.png" id="1_87w6e"]
+[ext_resource type="Texture2D" uid="uid://by10mtuocfn1c" path="res://Assets/tilemap.png" id="1_pbcq7"]
+[ext_resource type="PackedScene" uid="uid://bq5wiy3f6wmdl" path="res://scenes/deck.tscn" id="2_48lcc"]
+[ext_resource type="Script" path="res://scripts/deck.gd" id="3_2fn28"]
+[ext_resource type="PackedScene" uid="uid://f0mgi84xmq1k" path="res://scenes/Card2.tscn" id="4_h3ri7"]
+[ext_resource type="PackedScene" uid="uid://b8aj36tgnf51m" path="res://scenes/card3.tscn" id="5_0es0j"]
+[ext_resource type="PackedScene" uid="uid://cu7w37naahnyo" path="res://scenes/card4.tscn" id="6_rbw1f"]
+[ext_resource type="PackedScene" uid="uid://bj53kmucuydb0" path="res://scenes/card1.tscn" id="7_rxro4"]
+[ext_resource type="Script" path="res://scripts/card_1.gd" id="8_lo8m6"]
+[ext_resource type="PackedScene" uid="uid://dfugdgpqiq70j" path="res://scenes/card_5.tscn" id="9_mh5bd"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1mii8"]
 tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 131072, 589824, 4, 196608, 131072, 4, 1, 131072, 2, 65537, 393216, 0, 131073, 393216, 1, 196609, 393216, 2, 2, 327680, 0, 65538, 327680, 1, 131074, 720896, 4, 196610, 131072, 4, 3, 0, 4, 65539, 327680, 1610612740, 131075, 131072, 1610612740, 196611, 327680, 4)
@@ -8,7 +16,7 @@ tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 131072, 589824, 4, 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8tgvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5nfmo"]
-texture = ExtResource("1_87w6e")
+texture = ExtResource("1_pbcq7")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 1:0/0 = 0
@@ -207,7 +215,7 @@ sources/0 = SubResource("TileSetAtlasSource_5nfmo")
 pattern_0 = SubResource("TileMapPattern_1mii8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bh1qa"]
-texture = ExtResource("1_87w6e")
+texture = ExtResource("1_pbcq7")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 1:0/0 = 0
@@ -353,5 +361,51 @@ tile_set = SubResource("TileSet_gewls")
 
 [node name="SecondLayer" type="TileMapLayer" parent="."]
 position = Vector2(-5, 2)
-tile_map_data = PackedByteArray("AAAWAA8AAAAAAAkAAAAJAAsAAAABAAcAAAAjAA0AAAAAAAkAAAA=")
+tile_map_data = PackedByteArray("AAAlABEAAAAAAAkAAAAeAAwAAAAAAAkAAAAJAAwAAAABAAcAAAA=")
 tile_set = SubResource("TileSet_nhc3c")
+
+[node name="Deck" parent="." instance=ExtResource("2_48lcc")]
+offset_left = 609.0
+offset_top = 349.0
+offset_right = 609.0
+offset_bottom = 349.0
+script = ExtResource("3_2fn28")
+
+[node name="Card2" parent="Deck" instance=ExtResource("4_h3ri7")]
+layout_mode = 1
+offset_left = -434.0
+offset_top = 9.0
+offset_right = -434.0
+offset_bottom = 9.0
+
+[node name="Card3" parent="Deck" instance=ExtResource("5_0es0j")]
+layout_mode = 1
+offset_left = -324.0
+offset_top = 8.0
+offset_right = -324.0
+offset_bottom = 8.0
+
+[node name="Card4" parent="Deck" instance=ExtResource("6_rbw1f")]
+layout_mode = 1
+offset_left = -210.0
+offset_top = 9.0
+offset_right = -210.0
+offset_bottom = 9.0
+
+[node name="Card1" parent="Deck" instance=ExtResource("7_rxro4")]
+layout_mode = 1
+offset_left = -547.0
+offset_top = 8.0
+offset_right = -547.0
+offset_bottom = 8.0
+script = ExtResource("8_lo8m6")
+
+[node name="Card5" parent="Deck" instance=ExtResource("9_mh5bd")]
+layout_mode = 1
+offset_left = -100.0
+offset_top = 10.0
+offset_right = -100.0
+offset_bottom = 10.0
+
+[connection signal="gui_input" from="Deck" to="Deck" method="_on_gui_input"]
+[connection signal="gui_input" from="Deck/Card1" to="Deck/Card1" method="_on_gui_input"]
