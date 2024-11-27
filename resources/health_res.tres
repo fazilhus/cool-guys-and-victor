@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatsData" load_steps=2 format=3 uid="uid://ckd113r5fwamo"]
+
+[ext_resource type="Script" path="res://scripts/health_resource.gd" id="1_lr66b"]
+
+[resource]
+script = ExtResource("1_lr66b")
+current = 0.0
+_min = 0.0
+_max = 0.0
