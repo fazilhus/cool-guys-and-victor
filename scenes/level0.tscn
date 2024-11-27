@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://buj5pv01hdlri"]
+[gd_scene load_steps=17 format=4 uid="uid://buj5pv01hdlri"]
 
+[ext_resource type="Script" path="res://scripts/level_0.gd" id="1_ie6qc"]
 [ext_resource type="Texture2D" uid="uid://by10mtuocfn1c" path="res://Assets/tilemap.png" id="1_pbcq7"]
 [ext_resource type="PackedScene" uid="uid://bq5wiy3f6wmdl" path="res://scenes/deck.tscn" id="2_48lcc"]
 [ext_resource type="Script" path="res://scripts/deck.gd" id="3_2fn28"]
@@ -9,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bj53kmucuydb0" path="res://scenes/card1.tscn" id="7_rxro4"]
 [ext_resource type="Script" path="res://scripts/card_1.gd" id="8_lo8m6"]
 [ext_resource type="PackedScene" uid="uid://dfugdgpqiq70j" path="res://scenes/card_5.tscn" id="9_mh5bd"]
-
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1mii8"]
 tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 131072, 589824, 4, 196608, 131072, 4, 1, 131072, 2, 65537, 393216, 0, 131073, 393216, 1, 196609, 393216, 2, 2, 327680, 0, 65538, 327680, 1, 131074, 720896, 4, 196610, 131072, 4, 3, 0, 4, 65539, 327680, 1610612740, 131075, 131072, 1610612740, 196611, 327680, 4)
@@ -409,9 +409,9 @@ offset_top = 10.0
 offset_right = -100.0
 offset_bottom = 10.0
 
-[connection signal="gui_input" from="Deck" to="Deck" method="_on_gui_input"]
-[connection signal="gui_input" from="Deck/Card1" to="Deck/Card1" method="_on_gui_input"]
-
 [node name="SpawnPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(120, 248)
+
+[connection signal="gui_input" from="Deck" to="Deck" method="_on_gui_input"]
+[connection signal="gui_input" from="Deck/Card1" to="Deck/Card1" method="_on_gui_input"]
