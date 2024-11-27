@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enum="*res://scripts/enum.gd"
+Util="*res://scripts/util.gd"
 Main="*res://scenes/game_manager.tscn"
 
 [display]
