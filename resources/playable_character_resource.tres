@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayableCharacterData" load_steps=5 format=3 uid="uid://b3bjpqfl0r7ox"]
+
+[ext_resource type="Script" path="res://scripts/health_resource.gd" id="1_cxslw"]
+[ext_resource type="Script" path="res://scripts/playable_character_resource.gd" id="1_pi1gv"]
+
+[sub_resource type="Resource" id="Resource_vfixa"]
+script = ExtResource("1_cxslw")
+current = 0.0
+minimum = 0.0
+maximum = 5.0
+
+[sub_resource type="Resource" id="Resource_a31kr"]
+script = ExtResource("1_cxslw")
+current = 10.0
+minimum = 0.0
+maximum = 10.0
+
+[resource]
+script = ExtResource("1_pi1gv")
+ap_data = SubResource("Resource_vfixa")
+health_data = SubResource("Resource_a31kr")

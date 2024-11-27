@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct0b8k76nanri"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ayqs6"]
+[ext_resource type="PackedScene" uid="uid://cm7hmr71rqocx" path="res://scenes/player_manager.tscn" id="2_efinp"]
+[ext_resource type="PackedScene" uid="uid://bfdpa3ibtn613" path="res://scenes/map_manager.tscn" id="4_oq1xn"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_ayqs6")
+
+[node name="MapManager" parent="." instance=ExtResource("4_oq1xn")]
+
+[node name="PlayerManager" parent="." instance=ExtResource("2_efinp")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdpa3ibtn613"]
+
+[ext_resource type="Script" path="res://scripts/map_manager.gd" id="1_cf0rj"]
+[ext_resource type="PackedScene" uid="uid://buj5pv01hdlri" path="res://scenes/level0.tscn" id="2_b2ysc"]
+
+[node name="MapManager" type="Node"]
+script = ExtResource("1_cf0rj")
+level_packed = ExtResource("2_b2ysc")

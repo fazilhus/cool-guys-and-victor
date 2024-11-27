@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="cool-guys-and-victor"
-run/main_scene="res://scenes/level0.tscn"
+run/main_scene="res://scenes/start_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Enum="*res://scripts/enum.gd"
+Util="*res://scripts/util.gd"
+Main="*res://scenes/game_manager.tscn"
 
 [display]
 
