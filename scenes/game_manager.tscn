@@ -10,6 +10,3 @@ script = ExtResource("1_ayqs6")
 [node name="MapManager" parent="." instance=ExtResource("4_oq1xn")]
 
 [node name="PlayerManager" parent="." instance=ExtResource("2_efinp")]
-
-[connection signal="map_manager_ready" from="MapManager" to="." method="on_map_manager_ready"]
-[connection signal="player_manager_ready" from="PlayerManager" to="." method="on_player_manager_ready"]
