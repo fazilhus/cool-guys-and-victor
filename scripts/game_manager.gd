@@ -18,8 +18,12 @@ var is_map_manager_initialized : bool = false
 var current_turn_phase : Enum.TurnPhase = Enum.TurnPhase.None
 
 func _ready() -> void:
+	pass
+	
+func should_load_level() -> void:
+	map_manager.load_level()
+	
 	player_manager.initialize()
-
 	player_manager.player.turn_phase_player_ended.connect(end_turn_phase_player)
 
 # should be connected to MapManager
