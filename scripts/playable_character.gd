@@ -5,6 +5,8 @@ class_name PlayableCharacter
 
 signal turn_phase_player_ended
 
+signal card_played(data: CardData)
+
 func _ready() -> void:
 	Main.battle_started.connect(on_battle_started)
 	Main.battle_ended.connect(on_battle_ended)
@@ -36,11 +38,10 @@ func on_turn_phase_enemy() -> void:
 func on_turn_phase_end() -> void:
 	pass
 
-#func try_play_card(card : Card) -> void:
-func try_play_card(_card) -> void:
-	#if card.cost <= char_data.ap_data.current:
-		#char_data.ap_data.current -= card.cost
-		#on_card_played.emit(card)
-	#else:
-		#do smth
-	pass
+func try_play_card(card: CardData) -> bool:
+	if card.cost <= char_data.ap_data.current:
+		char_data.ap_data.current -= card.cost
+		card_played.emit(card)
+		return true
+	else:
+		return false
