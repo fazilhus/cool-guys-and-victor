@@ -9,7 +9,7 @@ signal deck_is_empty
 func _ready() -> void:
 	pass # Replace with function body.
 
-func discard(to_be_discarded: Array[Card]) -> void:
+func discard(to_be_discarded: Array[Node]) -> void:
 	for card in to_be_discarded:
 		discarded.add_child(card)
 

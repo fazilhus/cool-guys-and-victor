@@ -31,3 +31,7 @@ window/stretch/aspect="keep_width"
 [dotnet]
 
 project/assembly_name="cool-guys-and-victor"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

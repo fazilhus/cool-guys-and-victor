@@ -8,10 +8,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -14.0
-offset_top = -17.0
-offset_right = -14.0
-offset_bottom = -17.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e5r3w")
@@ -19,7 +19,7 @@ script = ExtResource("1_e5r3w")
 [node name="DeckVisual" type="Node" parent="."]
 
 [node name="DeckTransform" type="Node2D" parent="DeckVisual"]
-position = Vector2(1812, 950)
+position = Vector2(1773, 943)
 
 [node name="Sprite2D" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-14, -17)

@@ -175,7 +175,7 @@ offset_bottom = 8.0
 text = "8"
 label_settings = SubResource("LabelSettings_mrtxw")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D/CardHeader"]
+[node name="CardName" type="RichTextLabel" parent="Sprite2D/CardHeader"]
 offset_left = -27.1199
 offset_top = -7.00498
 offset_right = 46.8801
@@ -192,7 +192,7 @@ texture = ExtResource("2_6a3v1")
 region_enabled = true
 region_rect = Rect2(220, 473, 100, 128)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D/CardDescSprite"]
+[node name="CardDescription" type="RichTextLabel" parent="Sprite2D/CardDescSprite"]
 offset_left = -44.0
 offset_top = 21.0
 offset_right = 44.0

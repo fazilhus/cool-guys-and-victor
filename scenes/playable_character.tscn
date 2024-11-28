@@ -9,6 +9,7 @@ script = ExtResource("1_fqfxt")
 char_data = ExtResource("2_qwghn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 542)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
