@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://buj5pv01hdlri"]
+[gd_scene load_steps=16 format=4 uid="uid://buj5pv01hdlri"]
 
 [ext_resource type="Script" path="res://scripts/level_0.gd" id="1_ie6qc"]
 [ext_resource type="Texture2D" uid="uid://by10mtuocfn1c" path="res://Assets/tilemap.png" id="1_pbcq7"]
 [ext_resource type="PackedScene" uid="uid://bq5wiy3f6wmdl" path="res://scenes/deck.tscn" id="2_48lcc"]
-[ext_resource type="Script" path="res://scripts/deck.gd" id="3_2fn28"]
 [ext_resource type="PackedScene" uid="uid://f0mgi84xmq1k" path="res://scenes/Card2.tscn" id="4_h3ri7"]
 [ext_resource type="PackedScene" uid="uid://b8aj36tgnf51m" path="res://scenes/card3.tscn" id="5_0es0j"]
 [ext_resource type="PackedScene" uid="uid://cu7w37naahnyo" path="res://scenes/card4.tscn" id="6_rbw1f"]
@@ -355,6 +354,7 @@ separation = Vector2i(1, 1)
 sources/0 = SubResource("TileSetAtlasSource_bh1qa")
 
 [node name="Level_0" type="Node2D"]
+position = Vector2(0, 2)
 script = ExtResource("1_ie6qc")
 
 [node name="BaseLayer" type="TileMapLayer" parent="."]
@@ -371,14 +371,19 @@ offset_left = 609.0
 offset_top = 349.0
 offset_right = 609.0
 offset_bottom = 349.0
-script = ExtResource("3_2fn28")
 
 [node name="Card2" parent="Deck" instance=ExtResource("4_h3ri7")]
 layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = -434.0
 offset_top = 9.0
 offset_right = -434.0
 offset_bottom = 9.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Card3" parent="Deck" instance=ExtResource("5_0es0j")]
 layout_mode = 1
@@ -396,11 +401,17 @@ offset_bottom = 9.0
 
 [node name="Card1" parent="Deck" instance=ExtResource("7_rxro4")]
 layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = -547.0
 offset_top = 8.0
 offset_right = -547.0
 offset_bottom = 8.0
+grow_horizontal = 1
+grow_vertical = 1
 script = ExtResource("8_lo8m6")
+metadata/_edit_use_anchors_ = true
 
 [node name="Card5" parent="Deck" instance=ExtResource("9_mh5bd")]
 layout_mode = 1

@@ -25,7 +25,8 @@ Main="*res://scenes/game_manager.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/scale=2.0
+window/size/initial_position_type=0
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
