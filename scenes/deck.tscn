@@ -18,31 +18,34 @@ script = ExtResource("1_e5r3w")
 
 [node name="DeckVisual" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="DeckVisual"]
+[node name="DeckTransform" type="Node2D" parent="DeckVisual"]
+position = Vector2(1812, 950)
+
+[node name="Sprite2D" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-14, -17)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
-[node name="Sprite2D2" type="Sprite2D" parent="DeckVisual"]
+[node name="Sprite2D2" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-11, -20)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
-[node name="Sprite2D3" type="Sprite2D" parent="DeckVisual"]
+[node name="Sprite2D3" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-7, -22)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
-[node name="Sprite2D4" type="Sprite2D" parent="DeckVisual"]
+[node name="Sprite2D4" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-4, -26)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
-[node name="Sprite2D5" type="Sprite2D" parent="DeckVisual"]
+[node name="Sprite2D5" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(0, -29)
 texture = ExtResource("1_8shuv")
 region_enabled = true
