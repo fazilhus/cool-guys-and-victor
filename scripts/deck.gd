@@ -42,37 +42,12 @@ func draw_cards(amount : int) -> Array[Card]:
 	return drawn
 
 
+func _on_play_card_area_area_exited(area:Area2D) -> void:
+	var card = area.get_parent()
+	card.playable = true
+	# Replace with function body.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Called when the node enters the scene tree for the first time.
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("Left mouse button was pressed!")
+func _on_play_card_area_area_entered(area:Area2D) -> void:
+	var card = area.get_parent()
+	card.playable = false
+	# Replace with function body.

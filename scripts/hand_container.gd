@@ -80,17 +80,42 @@ func get_top_card():
 		return card
 	return null
 
-
+# Låt stå!!!!!!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	for card: Card in get_children():
-		if card.is_hovered and !card.animated:
-			var top = get_top_card()
-			if card == top:
-				card.should_highlight_itself()	
-		elif card.is_hovered and card.animated:
-			card.should_unhighlight_itself()
+# func _process(delta: float) -> void:
+# 	for card: Card in get_children():
+# 		if card.is_hovered and !card.animated:
+# 			var top = get_top_card()
+# 			if card == top:
+# 				card.should_highlight_itself()	
+# 		elif card.is_hovered and card.animated:
+# 			card.should_unhighlight_itself()
 	
+
+func _input(event):
+	if event == InputEventMouseMotion:
+		for card: Card in get_children():
+			if card.is_hovered and !card.animated:
+				var top = get_top_card()
+				if card == top:
+					card.should_highlight_itself()	
+			elif card.is_hovered and card.animated:
+				card.should_unhighlight_itself()
+
+	if event == InputEventMouseButton and event.is_pressed() and event.button_mask == 1:
+		var top_card = get_top_card()
+		if top_card != null:
+			top_card.is_dragged = true
+			top_card.position = get_global_mouse_position()
+			
+	if event == InputEventMouseButton and event.is_released() and event.button_mask == 1:
+		for card: Card in get_children():
+			if card.is_dragged == true and card.playable:
+				#do card shit
+				card.queue_free()
+				update_spread()
+				
+			
 
 # func _unhandled_input(event: InputEvent) -> void:
 # 	if event.is_pressed() and event.button_mask == 1:

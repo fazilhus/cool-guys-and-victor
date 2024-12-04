@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq5wiy3f6wmdl"]
+[gd_scene load_steps=4 format=3 uid="uid://bq5wiy3f6wmdl"]
 
 [ext_resource type="Texture2D" uid="uid://btd35bep818j8" path="res://Assets/cardBacks.png" id="1_8shuv"]
 [ext_resource type="Script" path="res://scripts/deck.gd" id="1_e5r3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtgq2"]
+size = Vector2(1920, 752)
 
 [node name="DeckControl" type="Control"]
 layout_mode = 3
@@ -56,3 +59,14 @@ unique_name_in_owner = true
 
 [node name="Discarded" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="PlayCardArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayCardArea"]
+position = Vector2(961, 376)
+shape = SubResource("RectangleShape2D_gtgq2")
+
+[connection signal="area_entered" from="PlayCardArea" to="." method="_on_play_card_area_area_entered"]
+[connection signal="area_exited" from="PlayCardArea" to="." method="_on_play_card_area_area_exited"]

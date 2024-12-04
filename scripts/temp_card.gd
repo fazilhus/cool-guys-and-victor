@@ -5,8 +5,10 @@ class_name Card
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var area : Area2D = $Area2D
 
-@export var is_hovered : bool = false
+var is_hovered : bool = false
+var is_dragged : bool = false
 var animated : bool = false
+var playable : bool = false
 # Called when the node enters the scene tree for the first time.
 
 signal area_2d_mouse_entered
