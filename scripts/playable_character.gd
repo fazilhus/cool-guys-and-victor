@@ -39,9 +39,14 @@ func on_turn_phase_end() -> void:
 	pass
 
 func try_play_card(card: CardData) -> bool:
-	if card.cost <= char_data.ap_data.current:
-		char_data.ap_data.current -= card.cost
-		card_played.emit(card)
-		return true
-	else:
+	if card.cost > char_data.ap_data.current:
 		return false
+	
+	if !is_card_play_legal(card):
+		return false
+	
+	char_data.ap_data.current -= card.cost
+	card_played.emit(card)
+	return true
+
+

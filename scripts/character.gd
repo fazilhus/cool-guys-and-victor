@@ -16,3 +16,23 @@ func take_damage(dmg: int) -> void:
 
 func on_health_reached_min():
 	character_health_reached_min.emit()
+
+func is_card_play_legal(card: CardData) -> bool:
+	var pos = global_position
+	for action in card.actions:
+		match action:
+			MovementData:
+				if !is_movement_legal(action as MovementData, pos):
+					return false
+			_:
+				pass
+	return true
+
+func is_movement_legal(data: MovementData, pos: Vector2) -> bool:
+	var mod = Vector2i.ZERO
+	for movement in data.shape:
+		if !Main.map_manager.level.is_traversable_at(pos + mod):
+			return false
+		
+		mod += movement
+	return true
