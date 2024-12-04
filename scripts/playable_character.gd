@@ -46,7 +46,22 @@ func try_play_card(card: CardData) -> bool:
 		return false
 	
 	char_data.ap_data.current -= card.cost
+	play_card(card)
 	card_played.emit(card)
 	return true
 
+func play_card(card: CardData) -> void:
+	for action in card.actions:
+		var move: MovementData = action
+		if move:
+			move_player(move)
+		else:
+			continue
 
+func move_player(move: MovementData) -> void:
+	var new_pos = Vector2i.ZERO
+	for movement in move.step:
+		new_pos += movement
+	
+	global_position.x += 16 * new_pos.x
+	global_position.y += 16 * new_pos.y
