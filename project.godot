@@ -23,14 +23,15 @@ Main="*res://scenes/game_manager.tscn"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=544
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/initial_position_type=0
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
 project/assembly_name="cool-guys-and-victor"
 
-[layer_names]
+[rendering]
 
-2d_physics/layer_2="Card"
+textures/canvas_textures/default_texture_filter=0

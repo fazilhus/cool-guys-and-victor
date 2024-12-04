@@ -8,18 +8,30 @@ class_name HandUI
 const HAND_WIDTH = 160.0
 const HAND_HIGHT = 24.0
 const CARD_ROTATION = 10
+const HAND_SIZE = 5
 
 var highest_card_z
 
 const CARD = preload("res://scenes/temp_card.tscn")
 
+var deck : Deck
+
 func fill_hand()->void:
-	for _x in 5:
-		var card = CARD.instantiate()
+	var new_hand = deck.draw_cards(HAND_SIZE)
+	var i : int = 0
+	for card in new_hand:
 		add_child(card)
-		card.z_index = _x
-		highest_card_z = _x
+		card.z_index = i
+		highest_card_z = i
 		card.area_2d_mouse_entered.connect(highlight_card)
+		i += 1
+
+	# for _x in 5:
+	# 	var card = CARD.instantiate()
+	# 	add_child(card)
+	# 	card.z_index = _x
+	# 	highest_card_z = _x
+	# 	card.area_2d_mouse_entered.connect(highlight_card)
 
 func update_spread()->void:
 	var hand = get_children()
@@ -41,7 +53,11 @@ func update_spread()->void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#const card := preload("res://scenes/temp_card.")
-	fill_hand()
+	Main.turn_phase_start.connect(start_turn)
+	Main.turn_phase_start.connect(end_turn)
+
+	deck = Main.player_manager.player.get_deck()
+	#fill_hand()
 	update_spread()
 
 func get_top_card():
@@ -64,27 +80,52 @@ func get_top_card():
 		return card
 	return null
 
-
+# Låt stå!!!!!!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	for card: Card in get_children():
-		if card.is_hovered and !card.animated:
-			var top = get_top_card()
-			if card == top:
-				card.should_highlight_itself()	
-		elif card.is_hovered and card.animated:
-			card.should_unhighlight_itself()
+# func _process(delta: float) -> void:
+# 	for card: Card in get_children():
+# 		if card.is_hovered and !card.animated:
+# 			var top = get_top_card()
+# 			if card == top:
+# 				card.should_highlight_itself()	
+# 		elif card.is_hovered and card.animated:
+# 			card.should_unhighlight_itself()
 	
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_pressed() and event.button_mask == 1:
-		var card = CARD.instantiate()
-		highest_card_z += 1
-		card.z_index = highest_card_z
-		add_child(card)
-		update_spread()
+func _input(event):
 	if event == InputEventMouseMotion:
-		get_top_card()
+		for card: Card in get_children():
+			if card.is_hovered and !card.animated:
+				var top = get_top_card()
+				if card == top:
+					card.should_highlight_itself()	
+			elif card.is_hovered and card.animated:
+				card.should_unhighlight_itself()
+
+	if event == InputEventMouseButton and event.is_pressed() and event.button_mask == 1:
+		var top_card = get_top_card()
+		if top_card != null:
+			top_card.is_dragged = true
+			top_card.position = get_global_mouse_position()
+			
+	if event == InputEventMouseButton and event.is_released() and event.button_mask == 1:
+		for card: Card in get_children():
+			if card.is_dragged == true and card.playable:
+				#do card shit
+				card.queue_free()
+				update_spread()
+				
+			
+
+# func _unhandled_input(event: InputEvent) -> void:
+# 	if event.is_pressed() and event.button_mask == 1:
+# 		var card = CARD.instantiate()
+# 		highest_card_z += 1
+# 		card.z_index = highest_card_z
+# 		add_child(card)
+# 		update_spread()
+# 	if event == InputEventMouseMotion:
+# 		get_top_card()
 		
 func highlight_card() -> void:
 	# for card: Card in get_children():
@@ -95,6 +136,18 @@ func highlight_card() -> void:
 	# 		card.should_highlight_itself()
 	pass
 
+func discard_hand()->void:
+	var current_hand = get_children()
+	deck.discard(get_children())
+	for card in current_hand:
+		card.queue_free()
 
-func _draw() -> void:
-	pass#draw_polyline(curve.get_baked_points(), Color.RED, 0.2)
+
+func start_turn()->void:
+	fill_hand()
+	update_spread()
+	pass
+
+func end_turn()->void:
+	discard_hand()
+	pass

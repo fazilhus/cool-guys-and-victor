@@ -13,3 +13,6 @@ func initialize() -> void:
 	var spawn = game.map_manager.get_spawn_point()
 	add_child(player)
 	player.global_position = spawn.global_position
+
+func get_deck() -> Deck:
+	return null

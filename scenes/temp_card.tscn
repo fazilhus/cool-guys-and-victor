@@ -1,34 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5o0k01y4jxs2"]
+[gd_scene load_steps=11 format=3 uid="uid://ckg1wn30xlw6v"]
 
-[ext_resource type="Texture2D" uid="uid://btd35bep818j8" path="res://Assets/cardBacks.png" id="1_6fawk"]
-[ext_resource type="Script" path="res://scenes/temp_card.gd" id="1_j4tfd"]
+[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_q75nk"]
+[ext_resource type="Texture2D" uid="uid://bd1hbenvfag3f" path="res://Assets/pixelCardAssest_V01.png" id="2_6a3v1"]
+[ext_resource type="Texture2D" uid="uid://dux4x5lqmmmkg" path="res://Assets/output-onlinepngtools (6).png" id="3_ay4gd"]
 
-[sub_resource type="Animation" id="Animation_gmrgl"]
-resource_name = "card_highlight"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -100)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 2)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_mrtxw"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv0r5"]
+atlas = ExtResource("2_6a3v1")
+region = Rect2(523, 271, 16, 16)
 
 [sub_resource type="Animation" id="Animation_11iew"]
 length = 0.001
@@ -79,6 +61,33 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmrgl"]
+resource_name = "card_highlight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_qvgv4"]
@@ -143,14 +152,77 @@ _data = {
 size = Vector2(142, 202)
 
 [node name="TempCard" type="Node2D"]
-script = ExtResource("1_j4tfd")
-is_hovered = null
+script = ExtResource("1_q75nk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.45833, 1.57031)
-texture = ExtResource("1_6fawk")
+texture = ExtResource("2_6a3v1")
 region_enabled = true
-region_rect = Rect2(14, 12, 96, 128)
+region_rect = Rect2(332, 337, 100, 128)
+
+[node name="CardHeader" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-0.0239459, -52.219)
+scale = Vector2(0.985218, 1)
+texture = ExtResource("2_6a3v1")
+region_enabled = true
+region_rect = Rect2(135, 273, 96, 18)
+
+[node name="CardCost" type="Label" parent="Sprite2D/CardHeader"]
+offset_left = -42.0
+offset_top = -9.0
+offset_right = -34.0
+offset_bottom = 8.0
+text = "8"
+label_settings = SubResource("LabelSettings_mrtxw")
+
+[node name="CardName" type="RichTextLabel" parent="Sprite2D/CardHeader"]
+offset_left = -27.1199
+offset_top = -7.00498
+offset_right = 46.8801
+offset_bottom = 10.995
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "Card"
+
+[node name="CardDescSprite" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(0.466181, 0.466181, 0.466181, 1)
+position = Vector2(1.35388e-07, 0.211336)
+scale = Vector2(0.985218, 1.00828)
+texture = ExtResource("2_6a3v1")
+region_enabled = true
+region_rect = Rect2(220, 473, 100, 128)
+
+[node name="CardDescription" type="RichTextLabel" parent="Sprite2D/CardDescSprite"]
+offset_left = -44.0
+offset_top = 21.0
+offset_right = 44.0
+offset_bottom = 59.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "blabla"
+
+[node name="CardVisual" type="TextureRect" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.157
+anchor_right = 0.958
+anchor_bottom = 0.609
+offset_left = -43.5
+offset_top = -58.096
+offset_right = -60.8
+offset_bottom = -71.952
+texture = ExtResource("3_ay4gd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardType" type="TextureRect" parent="Sprite2D"]
+offset_left = 28.0
+offset_top = -59.0
+offset_right = 44.0
+offset_bottom = -47.0
+texture = SubResource("AtlasTexture_cv0r5")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -159,7 +231,7 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(1, 1)
+visible = false
 collision_layer = 2
 collision_mask = 2
 

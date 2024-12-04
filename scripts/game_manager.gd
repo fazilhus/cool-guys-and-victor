@@ -53,6 +53,8 @@ func start_turn_phase_player() -> void:
 			Util.turn_phase_to_str(current_turn_phase))
 		return
 
+	#Fill card hand from deck
+
 	current_turn_phase = Enum.TurnPhase.Player
 	turn_phase_player.emit()
 
@@ -63,6 +65,8 @@ func end_turn_phase_player() -> void:
 			Util.turn_phase_to_str(current_turn_phase))
 		return
 	
+	#Discard unused card
+
 	start_turn_phase_enemy()
 
 func start_turn_phase_enemy() -> void:
