@@ -25,15 +25,6 @@ offset_bottom = 188.0
 texture = ExtResource("1_uw0xq")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TextureRectBackGround"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -24.0
-offset_right = 106.0
-offset_bottom = -1.0
-text = "card"
-horizontal_alignment = 1
-
 [node name="Label2" type="Label" parent="TextureRectBackGround"]
 layout_mode = 0
 offset_left = 1.0

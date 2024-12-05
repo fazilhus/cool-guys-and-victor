@@ -4,6 +4,9 @@ class_name MapManager
 @export var menu_packed : PackedScene
 @export var level_packed : PackedScene
 
+#some coordinate var?
+
+
 var menu = null
 var level : Level = null
 

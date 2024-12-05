@@ -5,7 +5,21 @@ class_name PlayableCharacter
 
 signal turn_phase_player_ended
 
+
+
+#var currPos=[7,15] #movement is: we click on card, we click on highlighted square to move there 
+#How to move to the grid we click at if it is highlighted too? 
+#Begin with card script: get player coordinates: wrong: begin with map manager, represent coordinates? 
+#https://pastebin.com/kimj4g0x
+#var last_position = Vector2() # last idle position
+#var tile_size = 64 # size in pixels of tiles on the grid
+#https://github.com/sventomasek/Godot-Grid-Based-Movement
+#https://www.nightquestgames.com/adding-collision-to-tilemaps-in-godot-4/#:~:text=How%20To%20Easily%20Add%20Collision%20to%20Your%20Tilemap,of%20the%20Colliding%20Character%20%28s%29%20...%20More%20items
+
+
 func _ready() -> void:
+	#position=position.snapped(Vector2(tile_size, tile_size))
+	
 	Main.battle_started.connect(on_battle_started)
 	Main.battle_ended.connect(on_battle_ended)
 

@@ -1,5 +1,12 @@
 extends Control
+#?: 
+#class_name Card1
 
+#stats for card1
+var type : String = "Movement"
+var pattern : String = "chessKnight"
+var cost : int = 2
+#var damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,9 +19,20 @@ func _process(delta: float) -> void:
 
 #not correct?: Make class card or attach script to each card instance godot
 
+#
+#func _input(event):
+#	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		
+		
+		
+#		var mouse_position = get_local_mouse_position()
+		#var grid_position = self.local_to_map(mouse_position)
+
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("Left mouse button was pressed!")
+		print("Left mouse button was pressed on card1!")
+		#get_node(“/root/player”).get_position()
+		
 		#The pattern of the card can be placed in 4 directions, show the resulting possible moves:
 		#Find character coordinates (backend), show result of all possible patterns (from the clicked card), card patterns from that player coordinate: 
 		#highlight those grids in the UI (first delete earlier highlighted grids), and do not move into walls 
