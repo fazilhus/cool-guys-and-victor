@@ -1,7 +1,8 @@
 extends Character
 class_name PlayableCharacter
 
-#@onready var deck : Deck = %Deck
+@onready var deck : Deck = %Deck
+@onready var hand : Node2D = %HandUI
 
 signal turn_phase_player_ended
 
@@ -65,3 +66,6 @@ func move_player(move: MovementData) -> void:
 	
 	global_position.x += 16 * new_pos.x
 	global_position.y += 16 * new_pos.y
+
+func get_deck():
+	return deck

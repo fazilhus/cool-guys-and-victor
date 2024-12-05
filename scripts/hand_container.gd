@@ -15,23 +15,26 @@ var highest_card_z
 const CARD = preload("res://scenes/temp_card.tscn")
 
 var deck : Deck
+var is_card_draged : bool = false
 
 func fill_hand()->void:
-	var new_hand = deck.draw_cards(HAND_SIZE)
-	var i : int = 0
-	for card in new_hand:
-		add_child(card)
-		card.z_index = i
-		highest_card_z = i
-		card.area_2d_mouse_entered.connect(highlight_card)
-		i += 1
-
-	# for _x in 5:
-	# 	var card = CARD.instantiate()
+	print("fills hand")
+	# var new_hand = deck.draw_cards(HAND_SIZE)
+	# var i : int = 0
+	# for card in new_hand:
 	# 	add_child(card)
-	# 	card.z_index = _x
-	# 	highest_card_z = _x
+	# 	card.z_index = i
+	# 	highest_card_z = i
 	# 	card.area_2d_mouse_entered.connect(highlight_card)
+	# 	card.visible = true
+	# 	i += 1
+
+	for _x in 5:
+		var card = CARD.instantiate()
+		add_child(card)
+		card.z_index = _x
+		highest_card_z = _x
+		card.area_2d_mouse_entered.connect(highlight_card)
 
 func update_spread()->void:
 	var hand = get_children()
@@ -41,18 +44,22 @@ func update_spread()->void:
 		if hand.size()>1:
 			hand_ratio = float(card.get_index())/float(hand.size()-1)
 
+		print(hand_ratio)
 		var destination := get_global_transform()
 		destination.origin.x += hand_fan.sample(hand_ratio)*HAND_WIDTH
 		destination.origin += fan_hight.sample(hand_ratio)*HAND_HIGHT*Vector2.UP
 		card.global_transform = destination
-		card.position.x = destination.origin.x + get_viewport().get_visible_rect().size.x / 2
-		card.position.y = destination.origin.y + get_viewport().get_visible_rect().size.y - 100
+		card.global_position.x = destination.origin.x + get_viewport().get_visible_rect().size.x / 2
+		#print(get_viewport().get_visible_rect().size.x)
+		card.global_position.y = destination.origin.y + get_viewport().get_visible_rect().size.y -300
+		#print(get_viewport().get_visible_rect().size.y)
 		#print(card_rotation.sample(hand_ratio))
 		card.rotate(deg_to_rad(card_rotation.sample(hand_ratio)*(-CARD_ROTATION)))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#const card := preload("res://scenes/temp_card.")
+	fill_hand()
 	Main.turn_phase_start.connect(start_turn)
 	Main.turn_phase_start.connect(end_turn)
 
@@ -82,8 +89,12 @@ func get_top_card():
 
 # Låt stå!!!!!!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta: float) -> void:
-# 	for card: Card in get_children():
+func _process(delta: float) -> void:
+	if is_card_draged == true:
+		for card: Card in get_children():
+			if card.is_dragged == true:
+				card.global_position = get_global_mouse_position()	
+
 # 		if card.is_hovered and !card.animated:
 # 			var top = get_top_card()
 # 			if card == top:
@@ -93,27 +104,33 @@ func get_top_card():
 	
 
 func _input(event):
-	if event == InputEventMouseMotion:
+	if event is InputEventMouseMotion:
 		for card: Card in get_children():
 			if card.is_hovered and !card.animated:
 				var top = get_top_card()
 				if card == top:
+					print(top)
 					card.should_highlight_itself()	
 			elif card.is_hovered and card.animated:
 				card.should_unhighlight_itself()
 
-	if event == InputEventMouseButton and event.is_pressed() and event.button_mask == 1:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_mask == 1:
 		var top_card = get_top_card()
-		if top_card != null:
+		if top_card != null and top_card is Card:
 			top_card.is_dragged = true
-			top_card.position = get_global_mouse_position()
+			is_card_draged = true
+			#top_card.global_position = get_global_mouse_position()
 			
-	if event == InputEventMouseButton and event.is_released() and event.button_mask == 1:
+	if event is InputEventMouseButton and event.is_released() and event.button_mask == 0:
+		is_card_draged = false
 		for card: Card in get_children():
 			if card.is_dragged == true and card.playable:
 				#do card shit
-				card.queue_free()
+				remove_child(card)
 				update_spread()
+				continue
+			card.is_dragged = false
+			
 				
 			
 

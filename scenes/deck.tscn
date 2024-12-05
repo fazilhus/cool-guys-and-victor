@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scripts/deck.gd" id="1_e5r3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtgq2"]
-size = Vector2(1920, 752)
+size = Vector2(718, 322)
 
-[node name="DeckControl" type="Control"]
+[node name="Deck" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,34 +18,40 @@ script = ExtResource("1_e5r3w")
 [node name="DeckVisual" type="Node" parent="."]
 
 [node name="DeckTransform" type="Node2D" parent="DeckVisual"]
-position = Vector2(1773, 943)
+position = Vector2(659, 457)
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-14, -17)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
 [node name="Sprite2D2" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-11, -20)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
 [node name="Sprite2D3" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-7, -22)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
 [node name="Sprite2D4" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(-4, -26)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
 
 [node name="Sprite2D5" type="Sprite2D" parent="DeckVisual/DeckTransform"]
 position = Vector2(0, -29)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8shuv")
 region_enabled = true
 region_rect = Rect2(226, 12, 96, 128)
@@ -61,7 +67,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayCardArea"]
-position = Vector2(961, 376)
+position = Vector2(360, 161)
 shape = SubResource("RectangleShape2D_gtgq2")
 
 [connection signal="area_entered" from="PlayCardArea" to="." method="_on_play_card_area_area_entered"]
