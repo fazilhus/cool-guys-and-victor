@@ -1,38 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxlucoddly0us"]
+[gd_scene load_steps=11 format=3 uid="uid://dxlucoddly0us"]
 
-[ext_resource type="Texture2D" uid="uid://sdjtrl72i1nh" path="res://Assets/redCardColor.jpeg" id="1_kg5qj"]
-[ext_resource type="Texture2D" uid="uid://dgler7hxuc8cp" path="res://Assets/output-onlinepngtools (3).png" id="2_3n2kj"]
-[ext_resource type="Texture2D" uid="uid://csvtiydfki3sp" path="res://Assets/sword_1377722.png" id="3_eyosv"]
+[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_l8dou"]
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_6jeqa"]
+[ext_resource type="Script" path="res://scripts/attack_data.gd" id="3_rougs"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_jxgcn"]
+[ext_resource type="Texture2D" uid="uid://sdjtrl72i1nh" path="res://Assets/redCardColor.jpeg" id="5_3thih"]
+[ext_resource type="Texture2D" uid="uid://dgler7hxuc8cp" path="res://Assets/output-onlinepngtools (3).png" id="6_mkjfv"]
+[ext_resource type="Texture2D" uid="uid://csvtiydfki3sp" path="res://Assets/sword_1377722.png" id="7_kxt8s"]
+
+[sub_resource type="Resource" id="Resource_pd8av"]
+script = ExtResource("3_rougs")
+amount = 4
+shape = Array[Vector2i]([Vector2i(0, 1), Vector2i(0, 1), Vector2i(0, 1), Vector2i(0, 1)])
+
+[sub_resource type="Resource" id="Resource_q8521"]
+script = ExtResource("4_jxgcn")
+cost = 3
+actions = Array[ExtResource("2_6jeqa")]([SubResource("Resource_pd8av")])
 
 [sub_resource type="LabelSettings" id="LabelSettings_mkg0y"]
 font_size = 15
 font_color = Color(0, 0, 0, 1)
 
-[node name="Card9" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Card9" type="Node2D"]
+script = ExtResource("1_l8dou")
+data = SubResource("Resource_q8521")
 
 [node name="TextureRectBackGround" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 3.0
 offset_top = 19.0
 offset_right = 110.0
 offset_bottom = 188.0
-texture = ExtResource("1_kg5qj")
+texture = ExtResource("5_3thih")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="TextureRectBackGround"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -24.0
-offset_right = 106.0
-offset_bottom = -1.0
-text = "card"
-horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="TextureRectBackGround"]
 layout_mode = 0
@@ -50,7 +50,7 @@ offset_left = 1.0
 offset_top = 56.0
 offset_right = 33.0
 offset_bottom = 158.0
-texture = ExtResource("2_3n2kj")
+texture = ExtResource("6_mkjfv")
 expand_mode = 1
 
 [node name="TextureRectType" type="TextureRect" parent="TextureRectBackGround"]
@@ -59,7 +59,7 @@ offset_left = 76.0
 offset_top = 34.0
 offset_right = 107.0
 offset_bottom = 88.0
-texture = ExtResource("3_eyosv")
+texture = ExtResource("7_kxt8s")
 expand_mode = 1
 
 [node name="Label3" type="Label" parent="TextureRectBackGround"]

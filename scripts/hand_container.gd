@@ -111,7 +111,7 @@ func _input(event):
 	if event == InputEventMouseButton and event.is_released() and event.button_mask == 1:
 		for card: Card in get_children():
 			if card.is_dragged == true and card.playable:
-				#do card shit
+				Main.player_manager.player.try_play_card(card.data)
 				card.queue_free()
 				update_spread()
 				

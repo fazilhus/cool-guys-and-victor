@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_n8qs7")
-shape = Array[Vector2]([])
+shape = Array[Vector2i]([])

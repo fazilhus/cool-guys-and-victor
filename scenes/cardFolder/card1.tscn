@@ -1,28 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj53kmucuydb0"]
+[gd_scene load_steps=11 format=3 uid="uid://bj53kmucuydb0"]
 
-[ext_resource type="Texture2D" uid="uid://cpwqv1que8tjc" path="res://Assets/output-onlinepngtools (1).png" id="1_uw0xq"]
-[ext_resource type="Texture2D" uid="uid://bgnk5wu3j5fdv" path="res://Assets/output-onlinepngtools.png" id="2_t17o0"]
-[ext_resource type="Texture2D" uid="uid://bkh5vvmsajxx0" path="res://Assets/boot.png" id="3_i46h8"]
+[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_e1ntq"]
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_ktmsw"]
+[ext_resource type="Script" path="res://scripts/movement_data.gd" id="3_e34ka"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_odnqv"]
+[ext_resource type="Texture2D" uid="uid://cpwqv1que8tjc" path="res://Assets/output-onlinepngtools (1).png" id="5_q2w6c"]
+[ext_resource type="Texture2D" uid="uid://bgnk5wu3j5fdv" path="res://Assets/output-onlinepngtools.png" id="6_gpg1g"]
+[ext_resource type="Texture2D" uid="uid://bkh5vvmsajxx0" path="res://Assets/boot.png" id="7_js246"]
+
+[sub_resource type="Resource" id="Resource_5gr4j"]
+script = ExtResource("3_e34ka")
+step = Array[Vector2i]([Vector2i(0, -1), Vector2i(-1, 0), Vector2i(0, -1)])
+
+[sub_resource type="Resource" id="Resource_c5777"]
+script = ExtResource("4_odnqv")
+cost = 2
+actions = Array[ExtResource("2_ktmsw")]([SubResource("Resource_5gr4j")])
 
 [sub_resource type="LabelSettings" id="LabelSettings_uilmd"]
 font_size = 15
 font_color = Color(0, 0, 0, 1)
 
-[node name="Card1" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Card1" type="Node2D"]
+script = ExtResource("1_e1ntq")
+data = SubResource("Resource_c5777")
 
 [node name="TextureRectBackGround" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 3.0
 offset_top = 19.0
 offset_right = 110.0
 offset_bottom = 188.0
-texture = ExtResource("1_uw0xq")
+texture = ExtResource("5_q2w6c")
 expand_mode = 1
 
 [node name="Label2" type="Label" parent="TextureRectBackGround"]
@@ -40,7 +48,7 @@ offset_left = 5.0
 offset_top = 58.0
 offset_right = 102.0
 offset_bottom = 160.0
-texture = ExtResource("2_t17o0")
+texture = ExtResource("6_gpg1g")
 expand_mode = 1
 
 [node name="TextureRectType" type="TextureRect" parent="TextureRectBackGround"]
@@ -49,7 +57,7 @@ offset_left = 89.0
 offset_top = 21.0
 offset_right = 103.0
 offset_bottom = 35.0
-texture = ExtResource("3_i46h8")
+texture = ExtResource("7_js246")
 expand_mode = 1
 flip_h = true
 

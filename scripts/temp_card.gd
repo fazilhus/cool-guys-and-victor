@@ -4,6 +4,7 @@ class_name Card
 @onready var animation_player : AnimationPlayer = %AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var area : Area2D = $Area2D
+@export var data : CardData
 
 var is_hovered : bool = false
 var is_dragged : bool = false

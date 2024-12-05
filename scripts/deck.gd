@@ -7,8 +7,15 @@ class_name Deck
 signal deck_is_empty
 
 func _ready() -> void:
-	pass # Replace with function body.
-
+	var path = "res://scenes/cardFolder/"
+	var dir = DirAccess.open(path)
+	dir.list_dir_begin()
+	while true:
+		var file_name = dir.get_next()
+		discarded.add_child(load(file_name).instantiate())
+	dir.list_dir_end()
+	shuffle_and_rebuild_deck()
+	
 func discard(to_be_discarded: Array[Node]) -> void:
 	for card in to_be_discarded:
 		discarded.add_child(card)

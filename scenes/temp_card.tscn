@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckg1wn30xlw6v"]
+[gd_scene load_steps=11 format=3 uid="uid://b7hq16sqnn5r"]
 
 [ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_q75nk"]
 [ext_resource type="Texture2D" uid="uid://bd1hbenvfag3f" path="res://Assets/pixelCardAssest_V01.png" id="2_6a3v1"]
