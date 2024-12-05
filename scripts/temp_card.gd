@@ -45,6 +45,7 @@ func _on_area_2d_mouse_entered() -> void:
 	# if card != null:
 	# 	card.animation_player.play("card_highlight")
 	#animation_player.play("card_highlight")
+	print("entered")
 	is_hovered = true
 	area_2d_mouse_entered.emit()
 	
@@ -66,4 +67,5 @@ func should_unhighlight_itself() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	is_hovered = false
+	playable = false
 	should_unhighlight_itself()
