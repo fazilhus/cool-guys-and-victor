@@ -5,7 +5,7 @@ class_name HandUI
 @export var fan_hight : Curve
 @export var card_rotation : Curve
 
-const HAND_WIDTH = 160.0
+const HAND_WIDTH = 130.0
 const HAND_HIGHT = 24.0
 const CARD_ROTATION = 10
 const HAND_SIZE = 5
@@ -32,17 +32,26 @@ func fill_hand()->void:
 	for _x in 5:
 		var card = CARD.instantiate()
 		add_child(card)
+		card.scale = Vector2(0.8,0.8)
 		card.z_index = _x
 		highest_card_z = _x
 		card.area_2d_mouse_entered.connect(highlight_card)
 
 func update_spread()->void:
 	var hand = get_children()
-	var hand_ratio = 0.5
+	var hand_ratio = 0
 
 	for card in hand:
-		if hand.size()>1:
-			hand_ratio = float(card.get_index())/float(hand.size()-1)
+		# if hand.size()>1:
+		# 	hand_ratio = float(card.get_index())/float(hand.size()-1)
+
+		match hand.size():
+			1:
+				hand_ratio = 0.5
+			2:
+				hand_ratio += 0.3
+			_:
+				hand_ratio = float(card.get_index())/float(hand.size()-1)
 
 		print(hand_ratio)
 		var destination := get_global_transform()
@@ -55,6 +64,8 @@ func update_spread()->void:
 		#print(get_viewport().get_visible_rect().size.y)
 		#print(card_rotation.sample(hand_ratio))
 		card.rotate(deg_to_rad(card_rotation.sample(hand_ratio)*(-CARD_ROTATION)))
+		card.hand_position = card.position
+		card.card_rotation = card.rotation
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,7 +120,7 @@ func _input(event):
 			if card.is_hovered and !card.animated:
 				var top = get_top_card()
 				if card == top:
-					print(top)
+					#print(top)
 					card.should_highlight_itself()	
 			elif card.is_hovered and card.animated:
 				card.should_unhighlight_itself()
@@ -119,6 +130,7 @@ func _input(event):
 		if top_card != null and top_card is Card:
 			top_card.is_dragged = true
 			is_card_draged = true
+			top_card.rotation = 0
 			#top_card.global_position = get_global_mouse_position()
 			
 	if event is InputEventMouseButton and event.is_released() and event.button_mask == 0:
@@ -129,6 +141,13 @@ func _input(event):
 				remove_child(card)
 				update_spread()
 				continue
+			if card.is_dragged == true:
+				var tween = create_tween()
+				tween.set_parallel(true)
+				tween.tween_property(card, "position", card.hand_position, 0.4)
+				print(card.hand_position)
+				tween.tween_property(card, "rotation", card.card_rotation, 0.5)
+
 			card.is_dragged = false
 			
 				

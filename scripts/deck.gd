@@ -44,10 +44,12 @@ func draw_cards(amount : int) -> Array[Card]:
 
 func _on_play_card_area_area_exited(area:Area2D) -> void:
 	var card = area.get_parent()
-	card.playable = true
+	card.playable = false
 	# Replace with function body.
 
 func _on_play_card_area_area_entered(area:Area2D) -> void:
 	var card = area.get_parent()
-	card.playable = false
+	card.playable = true
 	# Replace with function body.
+
+	

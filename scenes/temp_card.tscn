@@ -152,6 +152,7 @@ _data = {
 size = Vector2(142, 202)
 
 [node name="TempCard" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_q75nk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

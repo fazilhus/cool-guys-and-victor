@@ -9,6 +9,8 @@ var is_hovered : bool = false
 var is_dragged : bool = false
 var animated : bool = false
 var playable : bool = false
+var hand_position : Vector2
+var card_rotation : float = 0
 # Called when the node enters the scene tree for the first time.
 
 signal area_2d_mouse_entered

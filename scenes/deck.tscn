@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/deck.gd" id="1_e5r3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtgq2"]
-size = Vector2(718, 322)
+size = Vector2(721, 209)
 
 [node name="Deck" type="Control"]
 layout_mode = 3
@@ -62,13 +62,15 @@ unique_name_in_owner = true
 [node name="Discarded" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="PlayCardArea" type="Area2D" parent="."]
+[node name="Node" type="Node" parent="."]
+
+[node name="PlayCardArea" type="Area2D" parent="Node"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayCardArea"]
-position = Vector2(360, 161)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/PlayCardArea"]
+position = Vector2(360.5, 102.5)
 shape = SubResource("RectangleShape2D_gtgq2")
 
-[connection signal="area_entered" from="PlayCardArea" to="." method="_on_play_card_area_area_entered"]
-[connection signal="area_exited" from="PlayCardArea" to="." method="_on_play_card_area_area_exited"]
+[connection signal="area_entered" from="Node/PlayCardArea" to="." method="_on_play_card_area_area_entered"]
+[connection signal="area_exited" from="Node/PlayCardArea" to="." method="_on_play_card_area_area_exited"]
