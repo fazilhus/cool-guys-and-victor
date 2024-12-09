@@ -14,6 +14,7 @@ var highest_card_z
 
 const CARD = preload("res://scenes/temp_card.tscn")
 
+
 var deck : Deck
 var is_card_draged : bool = false
 
@@ -77,6 +78,8 @@ func _ready() -> void:
 	deck = Main.player_manager.player.get_deck()
 	#fill_hand()
 	update_spread()
+
+	
 
 func get_top_card():
 	var space_state = get_world_2d().direct_space_state

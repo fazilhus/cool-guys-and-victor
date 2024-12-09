@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/deck.gd" id="1_e5r3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtgq2"]
-size = Vector2(721, 209)
+size = Vector2(721, 161)
 
 [node name="Deck" type="Control"]
 layout_mode = 3
@@ -69,7 +69,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/PlayCardArea"]
-position = Vector2(360.5, 102.5)
+position = Vector2(360.5, 78.5)
 shape = SubResource("RectangleShape2D_gtgq2")
 
 [connection signal="area_entered" from="Node/PlayCardArea" to="." method="_on_play_card_area_area_entered"]
