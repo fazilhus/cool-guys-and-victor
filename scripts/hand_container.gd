@@ -61,7 +61,7 @@ func update_spread()->void:
 		card.global_transform = destination
 		card.global_position.x = destination.origin.x + get_viewport().get_visible_rect().size.x / 2
 		#print(get_viewport().get_visible_rect().size.x)
-		card.global_position.y = destination.origin.y + get_viewport().get_visible_rect().size.y -300
+		card.global_position.y = destination.origin.y + get_viewport().get_visible_rect().size.y -50
 		#print(get_viewport().get_visible_rect().size.y)
 		#print(card_rotation.sample(hand_ratio))
 		card.rotate(deg_to_rad(card_rotation.sample(hand_ratio)*(-CARD_ROTATION)))
@@ -92,6 +92,8 @@ func get_top_card():
 
 	if result.size() > 0:
 		var card = result[0].collider.get_parent()
+		if card is not Card:
+			return null
 		for area in result:
 			if area.collider.get_parent().z_index > card.z_index:
 				card = area.collider.get_parent()

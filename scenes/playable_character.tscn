@@ -16,6 +16,10 @@ texture = ExtResource("3_3xwd4")
 
 [node name="HandUI" parent="." instance=ExtResource("5_k6bv2")]
 unique_name_in_owner = true
+top_level = true
 
 [node name="Deck" parent="." instance=ExtResource("4_47aem")]
+unique_name_in_owner = true
+
+[node name="MoveButtonContainer" type="Node2D" parent="."]
 unique_name_in_owner = true

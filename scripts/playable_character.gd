@@ -3,6 +3,7 @@ class_name PlayableCharacter
 
 @onready var deck : Deck = %Deck
 @onready var hand : Node2D = %HandUI
+@onready var move_button_container : Node2D = %MoveButtonContainer
 const MOVEBUTTON = preload("res://scenes/move_button.tscn")
 
 signal turn_phase_player_ended
@@ -69,6 +70,7 @@ func play_card(card: CardData) -> void:
 			continue
 
 func move_player(move: MovementData) -> void:
+	move_button_container.global_position = global_position
 	var new_pos = Vector2i.ZERO
 	var new_pos2 = Vector2i.ZERO
 	var new_pos3 = Vector2i.ZERO
@@ -90,20 +92,28 @@ func move_player(move: MovementData) -> void:
 	# 	new_pos += movement
 
 	var move_button = MOVEBUTTON.instantiate()
-	add_child(move_button)
+	move_button_container.add_child(move_button)
 	move_button.global_position = global_position + Vector2(16*new_pos)
+	move_button.move.connect(move_character)
+	move_button.movedata = movements[0]
 
 	var move_button2 = MOVEBUTTON.instantiate()
-	add_child(move_button2)
+	move_button_container.add_child(move_button2)
 	move_button2.global_position = global_position + Vector2(16*new_pos2)
+	move_button2.move.connect(move_character)
+	move_button2.movedata = movements[1]
 
 	var move_button3 = MOVEBUTTON.instantiate()
-	add_child(move_button3)
+	move_button_container.add_child(move_button3)
 	move_button3.global_position = global_position + Vector2(16*new_pos3)
+	move_button3.move.connect(move_character)
+	move_button3.movedata = movements[2]
 
 	var move_button4 = MOVEBUTTON.instantiate()
-	add_child(move_button4)
+	move_button_container.add_child(move_button4)
 	move_button4.global_position = global_position + Vector2(16*new_pos4)
+	move_button4.move.connect(move_character)
+	move_button4.movedata = movements[3]
 	
 	# global_position.x += 16 * new_pos.x
 	# global_position.y += 16 * new_pos.y
@@ -137,3 +147,12 @@ func calc_movement(base_move : MovementData):
 	#breakpoint
 	return end_points
 	
+func move_character(movedata : MovementData) -> void:
+	var tween = create_tween()
+	var new_pos = Vector2i.ZERO
+	for movement in movedata.step:
+		new_pos += 16*movement
+		tween.tween_property(self, "position", self.position + Vector2(new_pos), 0.4)
+	for button in move_button_container.get_children():
+		button.queue_free()
+	print("hehe i moved")
