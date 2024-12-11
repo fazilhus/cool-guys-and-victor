@@ -1,11 +1,9 @@
 extends Node2D
 class_name Card
 
-@onready var animation_player : AnimationPlayer = %AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite2D
+# @onready var animation_player : AnimationPlayer = %AnimationPlayer
+# @onready var sprite : Sprite2D = $Sprite2D
 @onready var area : Area2D = $Area2D
-@export var data : CardData
-
 @export var data : CardData
 
 var is_hovered : bool = false
@@ -56,21 +54,21 @@ func _on_area_2d_mouse_entered() -> void:
 	
 	#pass # Replace with function body.
 
-func should_highlight_itself() -> void:
-	if is_hovered == true:
-		if !animated:
-			animation_player.play("card_highlight")
-			animated = true
-
-func should_unhighlight_itself() -> void:
-	if sprite.position != Vector2.ZERO:
-		if !is_hovered:
-			animation_player.play("card_unhighlight")
-			animated = false
+# func should_highlight_itself() -> void:
+	# if is_hovered == true:
+		# if !animated:
+			# animation_player.play("card_highlight")
+			# animated = true
+# 
+# func should_unhighlight_itself() -> void:
+	# if sprite.position != Vector2.ZERO:
+		# if !is_hovered:
+			# animation_player.play("card_unhighlight")
+			# animated = false
 
 
 
 func _on_area_2d_mouse_exited() -> void:
 	is_hovered = false
 	playable = false
-	should_unhighlight_itself()
+	# should_unhighlight_itself()
