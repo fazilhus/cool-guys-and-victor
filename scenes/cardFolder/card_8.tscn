@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://byrlexsiy7bmr"]
+[gd_scene load_steps=12 format=3 uid="uid://byrlexsiy7bmr"]
 
 [ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_ej3u5"]
 [ext_resource type="Script" path="res://scripts/action_data.gd" id="2_5fjfy"]
@@ -21,15 +21,25 @@ actions = Array[ExtResource("2_5fjfy")]([SubResource("Resource_suwuq")])
 font_size = 15
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy3ug"]
+size = Vector2(107, 169)
+
 [node name="Card8" type="Node2D"]
 script = ExtResource("1_ej3u5")
 data = SubResource("Resource_wswrr")
 
 [node name="TextureRectBackGround" type="TextureRect" parent="."]
-offset_left = 3.0
-offset_top = 19.0
-offset_right = 110.0
-offset_bottom = 188.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -84.5
+offset_right = 53.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_hqiep")
 expand_mode = 1
 
@@ -78,3 +88,11 @@ offset_bottom = 72.0
 texture = ExtResource("7_egfv5")
 expand_mode = 1
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cy3ug")
