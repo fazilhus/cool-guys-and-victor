@@ -17,6 +17,7 @@ func _ready() -> void:
 		var card_pkd = load(path + file_name)
 		var card = card_pkd.instantiate()
 		discarded.add_child(card)
+		card.hide()
 	dir.list_dir_end()
 	shuffle_and_rebuild_deck()
 	
@@ -41,19 +42,14 @@ func initialize_deck()->void:
 
 func draw_cards(amount : int) -> Array[Card]:
 	var deck: Array[Card] = []
-	for child in to_be_drawn.get_children():
-		if child is Card:
-			deck.append(child as Card)
 
-	if amount > deck.size():
-		return deck
+	var i = 0
+	while i < amount and i < to_be_drawn.get_child_count():
+		deck.append(to_be_drawn.get_child(i))
+		# to_be_drawn.get_child(i).queue_free()
+		i += 1
 
-	var drawn : Array[Card]
-	for _x in amount:
-		drawn.append(deck[0])
-		to_be_drawn.get_child(0).queue_free()
-
-	return drawn
+	return deck
 
 
 func _on_play_card_area_area_exited(area:Area2D) -> void:
