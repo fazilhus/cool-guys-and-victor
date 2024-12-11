@@ -17,11 +17,14 @@ size_flags_vertical = 6
 script = ExtResource("1_7e1cg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -6.0
-offset_top = 16.0
-offset_right = 984.0
-offset_bottom = 229.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.978
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = 155.0
+offset_right = -132.16
+offset_bottom = -152.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

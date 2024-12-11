@@ -1,8 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckg1wn30xlw6v"]
+[gd_scene load_steps=16 format=3 uid="uid://ckg1wn30xlw6v"]
 
 [ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_q75nk"]
 [ext_resource type="Texture2D" uid="uid://bd1hbenvfag3f" path="res://Assets/pixelCardAssest_V01.png" id="2_6a3v1"]
-[ext_resource type="Texture2D" uid="uid://dux4x5lqmmmkg" path="res://Assets/output-onlinepngtools (6).png" id="3_ay4gd"]
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_mvtkl"]
+[ext_resource type="Script" path="res://scripts/movement_data.gd" id="3_ocuws"]
+[ext_resource type="Texture2D" uid="uid://b7hn00lpr4gcb" path="res://Assets/Capture3.PNG" id="3_rvhc5"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_uf33w"]
+
+[sub_resource type="Resource" id="Resource_35c4g"]
+script = ExtResource("3_ocuws")
+step = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 0), Vector2i(1, 0), Vector2i(0, -1)])
+
+[sub_resource type="Resource" id="Resource_jisps"]
+script = ExtResource("4_uf33w")
+cost = 1
+actions = Array[ExtResource("2_mvtkl")]([SubResource("Resource_35c4g")])
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrtxw"]
 font_size = 12
@@ -152,7 +164,9 @@ _data = {
 size = Vector2(142, 202)
 
 [node name="TempCard" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_q75nk")
+data = SubResource("Resource_jisps")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.45833, 1.57031)
@@ -203,19 +217,18 @@ text = "blabla"
 
 [node name="CardVisual" type="TextureRect" parent="Sprite2D"]
 anchors_preset = -1
-anchor_left = 0.055
-anchor_top = 0.157
-anchor_right = 0.958
-anchor_bottom = 0.609
-offset_left = -43.5
-offset_top = -58.096
-offset_right = -60.8
-offset_bottom = -71.952
-texture = ExtResource("3_ay4gd")
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -88.0
+offset_right = -43.0
+offset_bottom = -57.0
+texture = ExtResource("3_rvhc5")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="CardType" type="TextureRect" parent="Sprite2D"]
+visible = false
 offset_left = 28.0
 offset_top = -59.0
 offset_right = 44.0

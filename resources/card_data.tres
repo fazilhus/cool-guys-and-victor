@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("2_njfpv")
+cost = 0
 actions = Array[ExtResource("1_fv20p")]([])

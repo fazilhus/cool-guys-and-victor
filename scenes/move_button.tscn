@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ohw8y2gv8o7b"]
+
+[ext_resource type="Texture2D" uid="uid://cus81skqsnbi1" path="res://Assets/marker1.png" id="1_tj3wx"]
+[ext_resource type="Script" path="res://scripts/move_button.gd" id="1_usu62"]
+
+[node name="MoveButton" type="Node2D"]
+script = ExtResource("1_usu62")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.046
+offset_right = 16.0
+offset_bottom = 16.0
+icon = ExtResource("1_tj3wx")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

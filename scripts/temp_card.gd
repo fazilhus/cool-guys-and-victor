@@ -5,10 +5,14 @@ class_name Card
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var area : Area2D = $Area2D
 
+@export var data : CardData
+
 var is_hovered : bool = false
 var is_dragged : bool = false
 var animated : bool = false
 var playable : bool = false
+var hand_position : Vector2
+var card_rotation : float = 0
 # Called when the node enters the scene tree for the first time.
 
 signal area_2d_mouse_entered
@@ -45,6 +49,7 @@ func _on_area_2d_mouse_entered() -> void:
 	# if card != null:
 	# 	card.animation_player.play("card_highlight")
 	#animation_player.play("card_highlight")
+	print("entered")
 	is_hovered = true
 	area_2d_mouse_entered.emit()
 	
@@ -66,4 +71,5 @@ func should_unhighlight_itself() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	is_hovered = false
+	playable = false
 	should_unhighlight_itself()

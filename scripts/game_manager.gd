@@ -25,10 +25,12 @@ func should_load_level() -> void:
 	
 	player_manager.initialize()
 	player_manager.player.turn_phase_player_ended.connect(end_turn_phase_player)
+	on_battle_start()
 
 # should be connected to MapManager
 func on_battle_start() -> void:
 	battle_started.emit()
+	process_turn_phase_start()
 
 func on_batlle_end() -> void:
 	battle_ended.emit()
