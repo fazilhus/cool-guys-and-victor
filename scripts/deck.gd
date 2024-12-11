@@ -36,7 +36,10 @@ func initialize_deck()->void:
 	pass 
 
 func draw_cards(amount : int) -> Array[Card]:
-	var deck = to_be_drawn.get_children()
+	var deck: Array[Card] = []
+	for child in to_be_drawn.get_children():
+		if child is Card:
+			deck.append(child as Card)
 
 	if amount > deck.size():
 		return deck
@@ -51,10 +54,12 @@ func draw_cards(amount : int) -> Array[Card]:
 
 func _on_play_card_area_area_exited(area:Area2D) -> void:
 	var card = area.get_parent()
-	card.playable = true
+	card.playable = false
 	# Replace with function body.
 
 func _on_play_card_area_area_entered(area:Area2D) -> void:
 	var card = area.get_parent()
-	card.playable = false
+	card.playable = true
 	# Replace with function body.
+
+	

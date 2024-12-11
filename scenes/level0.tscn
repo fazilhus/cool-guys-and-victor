@@ -144,7 +144,6 @@ separation = Vector2i(1, 1)
 sources/0 = SubResource("TileSetAtlasSource_bh1qa")
 
 [node name="Level_0" type="Node2D"]
-position = Vector2(0, 2)
 script = ExtResource("1_ie6qc")
 
 [node name="BaseLayer" type="TileMapLayer" parent="."]
@@ -158,4 +157,4 @@ tile_set = SubResource("TileSet_nhc3c")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(112, 240)
+position = Vector2(72, 328)
