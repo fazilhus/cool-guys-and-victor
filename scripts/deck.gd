@@ -10,9 +10,13 @@ func _ready() -> void:
 	var path = "res://scenes/cardFolder/"
 	var dir = DirAccess.open(path)
 	dir.list_dir_begin()
-	while true:
+	while dir:
 		var file_name = dir.get_next()
-		discarded.add_child(load(file_name).instantiate())
+		if file_name == "":
+			break
+		var card_pkd = load(path + file_name)
+		var card = card_pkd.instantiate()
+		discarded.add_child(card)
 	dir.list_dir_end()
 	shuffle_and_rebuild_deck()
 	
@@ -28,7 +32,7 @@ func shuffle_and_rebuild_deck():
 	new_deck.shuffle()
 
 	for card in new_deck:
-		to_be_drawn.add_child(card)
+		card.reparent(to_be_drawn)
 	
 func initialize_deck()->void:
 	#generate cards to "discarded"
