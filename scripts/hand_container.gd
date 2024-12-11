@@ -20,23 +20,23 @@ var is_card_draged : bool = false
 
 func fill_hand()->void:
 	print("fills hand")
-	# var new_hand = deck.draw_cards(HAND_SIZE)
-	# var i : int = 0
-	# for card in new_hand:
-	# 	add_child(card)
-	# 	card.z_index = i
-	# 	highest_card_z = i
-	# 	card.area_2d_mouse_entered.connect(highlight_card)
-	# 	card.visible = true
-	# 	i += 1
-
-	for _x in 5:
-		var card = CARD.instantiate()
-		add_child(card)
-		card.scale = Vector2(0.8,0.8)
-		card.z_index = _x
-		highest_card_z = _x
+	var new_hand = deck.draw_cards(HAND_SIZE)
+	var i : int = 0
+	for card in new_hand:
+		card.reparent(self)
+		card.z_index = i
+		highest_card_z = i
 		card.area_2d_mouse_entered.connect(highlight_card)
+		card.visible = true
+		i += 1
+
+	# for _x in 5:
+	# 	var card = CARD.instantiate()
+	# 	add_child(card)
+	# 	card.scale = Vector2(0.8,0.8)
+	# 	card.z_index = _x
+	# 	highest_card_z = _x
+	# 	card.area_2d_mouse_entered.connect(highlight_card)
 
 func update_spread()->void:
 	var hand = get_children()
@@ -71,11 +71,11 @@ func update_spread()->void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#const card := preload("res://scenes/temp_card.")
-	fill_hand()
-	Main.turn_phase_start.connect(start_turn)
-	Main.turn_phase_start.connect(end_turn)
-
 	deck = Main.player_manager.player.get_deck()
+	# fill_hand()
+	#Main.player_manager.player.turn_phase_player_.connect(start_turn)
+	Main.player_manager.player.turn_phase_player_ended.connect(end_turn)
+
 	#fill_hand()
 	update_spread()
 
@@ -142,10 +142,10 @@ func _input(event):
 		is_card_draged = false
 		for card: Card in get_children():
 			if card.is_dragged == true and card.playable:
-				#do card shit
-				remove_child(card)
-				update_spread()
-				continue
+				if Main.player_manager.player.try_play_card(card.data):
+					remove_child(card)
+					update_spread()
+					continue
 			if card.is_dragged == true:
 				var tween = create_tween()
 				tween.set_parallel(true)

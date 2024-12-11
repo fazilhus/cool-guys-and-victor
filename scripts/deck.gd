@@ -29,7 +29,10 @@ func initialize_deck()->void:
 	pass 
 
 func draw_cards(amount : int) -> Array[Card]:
-	var deck = to_be_drawn.get_children()
+	var deck: Array[Card] = []
+	for child in to_be_drawn.get_children():
+		if child is Card:
+			deck.append(child as Card)
 
 	if amount > deck.size():
 		return deck

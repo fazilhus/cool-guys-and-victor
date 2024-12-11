@@ -157,4 +157,4 @@ tile_set = SubResource("TileSet_nhc3c")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(112, 240)
+position = Vector2(72, 328)
