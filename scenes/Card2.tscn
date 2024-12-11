@@ -1,22 +1,22 @@
 [gd_scene load_steps=12 format=3 uid="uid://f0mgi84xmq1k"]
 
-[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_l68qw"]
-[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_c2a76"]
-[ext_resource type="Script" path="res://scripts/attack_data.gd" id="3_rydad"]
-[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_fheiy"]
-[ext_resource type="Texture2D" uid="uid://sdjtrl72i1nh" path="res://Assets/redCardColor.jpeg" id="5_f6fnt"]
-[ext_resource type="Texture2D" uid="uid://bgnk5wu3j5fdv" path="res://Assets/output-onlinepngtools.png" id="6_ylrlg"]
-[ext_resource type="Texture2D" uid="uid://csvtiydfki3sp" path="res://Assets/sword_1377722.png" id="7_dms7r"]
+[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_ull1d"]
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_ao57q"]
+[ext_resource type="Script" path="res://scripts/attack_data.gd" id="3_ehp7p"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_p2kvo"]
+[ext_resource type="Texture2D" uid="uid://sdjtrl72i1nh" path="res://Assets/redCardColor.jpeg" id="5_wpral"]
+[ext_resource type="Texture2D" uid="uid://bgnk5wu3j5fdv" path="res://Assets/output-onlinepngtools.png" id="6_oh8pv"]
+[ext_resource type="Texture2D" uid="uid://csvtiydfki3sp" path="res://Assets/sword_1377722.png" id="7_q0gxa"]
 
 [sub_resource type="Resource" id="Resource_58ogk"]
-script = ExtResource("3_rydad")
+script = ExtResource("3_ehp7p")
 amount = 3
 shape = Array[Vector2i]([Vector2i(0, -1), Vector2i(-1, 0), Vector2i(0, -1)])
 
 [sub_resource type="Resource" id="Resource_ucf3v"]
-script = ExtResource("4_fheiy")
+script = ExtResource("4_p2kvo")
 cost = 2
-actions = Array[ExtResource("2_c2a76")]([SubResource("Resource_58ogk")])
+actions = Array[ExtResource("2_ao57q")]([SubResource("Resource_58ogk")])
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsagg"]
 font_size = 15
@@ -26,7 +26,7 @@ font_color = Color(0, 0, 0, 1)
 size = Vector2(107, 169)
 
 [node name="Card2" type="Node2D"]
-script = ExtResource("1_l68qw")
+script = ExtResource("1_ull1d")
 data = SubResource("Resource_ucf3v")
 
 [node name="TextureRectBackGround" type="TextureRect" parent="."]
@@ -41,7 +41,7 @@ offset_right = 53.5
 offset_bottom = 84.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_f6fnt")
+texture = ExtResource("5_wpral")
 expand_mode = 1
 
 [node name="Label2" type="Label" parent="TextureRectBackGround"]
@@ -59,7 +59,7 @@ offset_left = 15.0
 offset_top = 90.0
 offset_right = 90.0
 offset_bottom = 167.0
-texture = ExtResource("6_ylrlg")
+texture = ExtResource("6_oh8pv")
 expand_mode = 1
 
 [node name="Label3" type="Label" parent="TextureRectBackGround"]
@@ -95,7 +95,7 @@ offset_left = 80.0
 offset_top = 35.0
 offset_right = 107.0
 offset_bottom = 82.0
-texture = ExtResource("7_dms7r")
+texture = ExtResource("7_q0gxa")
 expand_mode = 1
 
 [node name="Area2D" type="Area2D" parent="."]
