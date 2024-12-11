@@ -5,6 +5,10 @@ class_name Character
 
 @onready var health_comp := %Stats
 
+#coordinates of character? @onready waits for the spawn of the character or I mean waits for Node2D to instantiate then initializes.
+#spawn coordinate is (7,15)
+
+
 signal character_health_reached_min
 
 func _ready() -> void:

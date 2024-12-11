@@ -3,6 +3,7 @@ class_name Level
 
 @onready var spawn_point : Node2D = %SpawnPoint
 
+#level has tile array? tile class has coordinates? walkable or unwalkable tiles. 
 @onready var base_layer : TileMapLayer = %BaseLayer
 
 func get_spawn_point() -> Node2D:

@@ -7,8 +7,20 @@ class_name Deck
 signal deck_is_empty
 
 func _ready() -> void:
-	pass # Replace with function body.
-
+	var path = "res://scenes/cardFolder/"
+	var dir = DirAccess.open(path)
+	dir.list_dir_begin()
+	while dir:
+		var file_name = dir.get_next()
+		if file_name == "":
+			break
+		var card_pkd = load(path + file_name)
+		var card = card_pkd.instantiate()
+		discarded.add_child(card)
+		card.hide()
+	dir.list_dir_end()
+	shuffle_and_rebuild_deck()
+	
 func discard(to_be_discarded: Array[Node]) -> void:
 	for card in to_be_discarded:
 		discarded.add_child(card)
@@ -21,7 +33,7 @@ func shuffle_and_rebuild_deck():
 	new_deck.shuffle()
 
 	for card in new_deck:
-		to_be_drawn.add_child(card)
+		card.reparent(to_be_drawn)
 	
 func initialize_deck()->void:
 	#generate cards to "discarded"
@@ -30,19 +42,14 @@ func initialize_deck()->void:
 
 func draw_cards(amount : int) -> Array[Card]:
 	var deck: Array[Card] = []
-	for child in to_be_drawn.get_children():
-		if child is Card:
-			deck.append(child as Card)
 
-	if amount > deck.size():
-		return deck
+	var i = 0
+	while i < amount and i < to_be_drawn.get_child_count():
+		deck.append(to_be_drawn.get_child(i))
+		# to_be_drawn.get_child(i).queue_free()
+		i += 1
 
-	var drawn : Array[Card]
-	for _x in amount:
-		drawn.append(deck[0])
-		to_be_drawn.get_child(0).queue_free()
-
-	return drawn
+	return deck
 
 
 func _on_play_card_area_area_exited(area:Area2D) -> void:

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjkotpmfy6rl6"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_l3xu5"]
+[ext_resource type="Resource" uid="uid://k5e5nkfpduv1" path="res://resources/card_instances/card_inst.tres" id="2_ykkwl"]
+[ext_resource type="Texture2D" uid="uid://cpwqv1que8tjc" path="res://Assets/output-onlinepngtools (1).png" id="3_lrs44"]
+[ext_resource type="Texture2D" uid="uid://dgler7hxuc8cp" path="res://Assets/output-onlinepngtools (3).png" id="4_2cqg6"]
+[ext_resource type="Texture2D" uid="uid://bkh5vvmsajxx0" path="res://Assets/boot.png" id="5_kxjsm"]
+[ext_resource type="Texture2D" uid="uid://co47hc8v0p54p" path="res://Assets/number-2-hq-image-japaneseclass-13.png" id="6_pawp7"]
+
+[node name="CardControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l3xu5")
+card_data = ExtResource("2_ykkwl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 57.0
+
+[node name="TextureRectBackGround" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_lrs44")
+expand_mode = 1
+
+[node name="TextureRectPattern" type="TextureRect" parent="MarginContainer/TextureRectBackGround"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 37.0
+offset_bottom = 55.0
+texture = ExtResource("4_2cqg6")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="TextureRectType" type="TextureRect" parent="MarginContainer/TextureRectBackGround"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 1.0
+offset_right = 36.0
+offset_bottom = 15.0
+texture = ExtResource("5_kxjsm")
+expand_mode = 1
+flip_h = true
+
+[node name="TextureRectCost" type="TextureRect" parent="MarginContainer/TextureRectBackGround"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 14.0
+offset_bottom = 16.0
+texture = ExtResource("6_pawp7")
+expand_mode = 1
