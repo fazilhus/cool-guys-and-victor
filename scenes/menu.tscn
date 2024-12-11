@@ -7,25 +7,21 @@
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchor_right = 0.533
-anchor_bottom = 0.312
-offset_left = 8.0
-offset_top = 52.0
-offset_right = 904.64
-offset_bottom = 795.04
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 6
 theme = SubResource("Theme_n1gvd")
 script = ExtResource("1_7e1cg")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-offset_left = 88.0
-offset_top = -14.0
-offset_right = 869.0
-offset_bottom = 454.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_bkqa8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
@@ -36,7 +32,7 @@ alignment = 1
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_bkqa8")
-text = "Deckbuilding Dungeon Crawler Game in Godot "
+text = "Deckbuilding Dungeon Crawler"
 horizontal_alignment = 1
 vertical_alignment = 1
 
