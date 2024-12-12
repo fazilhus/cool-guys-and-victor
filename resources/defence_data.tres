@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="AttackData" load_steps=2 format=3 uid="uid://cpwse3571hpex"]
-
-[ext_resource type="Script" path="res://scripts/defence_data.gd" id="1_j6vwp"]
-
-[resource]
-script = ExtResource("1_j6vwp")
-amount = 0
-shape = Array[Vector2]([])

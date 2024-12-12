@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="MovementData" load_steps=2 format=3 uid="uid://b3a4t3xq60mh1"]
-
-[ext_resource type="Script" path="res://scripts/movement_data.gd" id="1_n8qs7"]
-
-[resource]
-script = ExtResource("1_n8qs7")
-shape = Array[Vector2]([])
