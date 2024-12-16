@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://byw8tnqn4wqma"]
+
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="1_fv20p"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="2_njfpv"]
+
+[resource]
+script = ExtResource("2_njfpv")
+cost = 0
+actions = Array[ExtResource("1_fv20p")]([])

@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq5wiy3f6wmdl"]
+
+[ext_resource type="Texture2D" uid="uid://btd35bep818j8" path="res://Assets/cardBacks.png" id="1_8shuv"]
+[ext_resource type="Script" path="res://scripts/deck.gd" id="1_e5r3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtgq2"]
+size = Vector2(721, 161)
+
+[node name="Deck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5r3w")
+
+[node name="DeckVisual" type="Node" parent="."]
+
+[node name="DeckTransform" type="Node2D" parent="DeckVisual"]
+position = Vector2(659, 457)
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="DeckVisual/DeckTransform"]
+position = Vector2(-14, -17)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_8shuv")
+region_enabled = true
+region_rect = Rect2(226, 12, 96, 128)
+
+[node name="Sprite2D2" type="Sprite2D" parent="DeckVisual/DeckTransform"]
+position = Vector2(-11, -20)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_8shuv")
+region_enabled = true
+region_rect = Rect2(226, 12, 96, 128)
+
+[node name="Sprite2D3" type="Sprite2D" parent="DeckVisual/DeckTransform"]
+position = Vector2(-7, -22)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_8shuv")
+region_enabled = true
+region_rect = Rect2(226, 12, 96, 128)
+
+[node name="Sprite2D4" type="Sprite2D" parent="DeckVisual/DeckTransform"]
+position = Vector2(-4, -26)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_8shuv")
+region_enabled = true
+region_rect = Rect2(226, 12, 96, 128)
+
+[node name="Sprite2D5" type="Sprite2D" parent="DeckVisual/DeckTransform"]
+position = Vector2(0, -29)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_8shuv")
+region_enabled = true
+region_rect = Rect2(226, 12, 96, 128)
+
+[node name="ToBeDrawn" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Discarded" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="PlayCardArea" type="Area2D" parent="Node"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/PlayCardArea"]
+position = Vector2(360.5, 78.5)
+shape = SubResource("RectangleShape2D_gtgq2")
+
+[connection signal="area_entered" from="Node/PlayCardArea" to="." method="_on_play_card_area_area_entered"]
+[connection signal="area_exited" from="Node/PlayCardArea" to="." method="_on_play_card_area_area_exited"]

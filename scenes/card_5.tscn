@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfugdgpqiq70j"]
+
+[ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_t2w2r"]
+[ext_resource type="Script" path="res://scripts/action_data.gd" id="2_8hl1g"]
+[ext_resource type="Script" path="res://scripts/attack_data.gd" id="3_2rtu3"]
+[ext_resource type="Script" path="res://scripts/card_data.gd" id="4_dng4u"]
+[ext_resource type="Texture2D" uid="uid://sdjtrl72i1nh" path="res://Assets/redCardColor.jpeg" id="5_kvce3"]
+[ext_resource type="Texture2D" uid="uid://xpx8sffqsnss" path="res://Assets/output-onlinepngtools (5).png" id="6_pvkfl"]
+[ext_resource type="Texture2D" uid="uid://csvtiydfki3sp" path="res://Assets/sword_1377722.png" id="7_xoe5x"]
+
+[sub_resource type="Resource" id="Resource_3seau"]
+script = ExtResource("3_2rtu3")
+amount = 5
+shape = Array[Vector2i]([Vector2i(1, 0)])
+
+[sub_resource type="Resource" id="Resource_t4ajv"]
+script = ExtResource("4_dng4u")
+cost = 1
+actions = Array[ExtResource("2_8hl1g")]([SubResource("Resource_3seau")])
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifvhv"]
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l801c"]
+size = Vector2(107, 169)
+
+[node name="Card5" type="Node2D"]
+script = ExtResource("1_t2w2r")
+data = SubResource("Resource_t4ajv")
+
+[node name="TextureRectBackGround" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -84.5
+offset_right = 53.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kvce3")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 106.0
+offset_bottom = 21.0
+text = "Energy cost: 1"
+label_settings = SubResource("LabelSettings_ifvhv")
+
+[node name="TextureRectPattern" type="TextureRect" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 90.0
+offset_right = 90.0
+offset_bottom = 167.0
+texture = ExtResource("6_pvkfl")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 17.0
+offset_right = 99.0
+offset_bottom = 40.0
+text = "Type:  Attack"
+label_settings = SubResource("LabelSettings_ifvhv")
+
+[node name="Label4" type="Label" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 73.0
+offset_right = 106.0
+offset_bottom = 96.0
+text = "Pattern:"
+label_settings = SubResource("LabelSettings_ifvhv")
+
+[node name="Label5" type="Label" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 36.0
+offset_right = 106.0
+offset_bottom = 59.0
+text = "Damage: 5
+"
+label_settings = SubResource("LabelSettings_ifvhv")
+
+[node name="TextureRectPattern2" type="TextureRect" parent="TextureRectBackGround"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 35.0
+offset_right = 107.0
+offset_bottom = 82.0
+texture = ExtResource("7_xoe5x")
+expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l801c")
