@@ -14,6 +14,8 @@ func _ready() -> void:
 		var file_name = dir.get_next()
 		if file_name == "":
 			break
+		if '.tscn.remap' in file_name:
+			file_name = file_name.trim_suffix('.remap')
 		var card_pkd = load(path + file_name)
 		var card = card_pkd.instantiate()
 		discarded.add_child(card)
