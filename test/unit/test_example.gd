@@ -9,4 +9,4 @@ extends GutTest
 	# var zebbe = true
 	# var gillar_att_suga_kuk = true
 	# assert_eq(zebbe, gillar_att_suga_kuk)
-# 	# assert_eq('hello', 'goodbye')
+# 	# assert_eq('hello', 'goodbye')      
