@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sdjtrl72i1nh"
-path="res://.godot/imported/redCardColor.jpeg-6e726d992fb86c43109fe2c78172e3f2.ctex"
+path="res://.godot/imported/redCardColor.jpeg-f872097317944505a5173ae58ef18955.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/redCardColor.jpeg"
-dest_files=["res://.godot/imported/redCardColor.jpeg-6e726d992fb86c43109fe2c78172e3f2.ctex"]
+source_file="res://assets/redCardColor.jpeg"
+dest_files=["res://.godot/imported/redCardColor.jpeg-f872097317944505a5173ae58ef18955.ctex"]
 
 [params]
 

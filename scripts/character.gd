@@ -5,9 +5,6 @@ class_name Character
 
 @onready var health_comp := %Stats
 
-#coordinates of character? @onready waits for the spawn of the character or I mean waits for Node2D to instantiate then initializes.
-#spawn coordinate is (7,15)
-
 
 signal character_health_reached_min
 
@@ -21,15 +18,7 @@ func take_damage(dmg: int) -> void:
 func on_health_reached_min():
 	character_health_reached_min.emit()
 
-func is_card_play_legal(card: CardData) -> bool:
-	# var pos: Vector2i = global_position / 16
-	# for action in card.actions:
-	# 	var move: MovementData = action
-	# 	if move:
-	# 		if !is_movement_legal(move, pos):
-	# 			return false
-	# 	else:
-	# 		return false
+func is_card_play_legal(_card: CardData) -> bool:
 	return true
 
 func is_movement_legal(data: MovementData, pos: Vector2i) -> bool:

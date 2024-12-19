@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scripts/action_data.gd" id="2_0jplj"]
 [ext_resource type="Script" path="res://scripts/movement_data.gd" id="3_j82ee"]
 [ext_resource type="Script" path="res://scripts/card_data.gd" id="4_roww4"]
-[ext_resource type="Texture2D" uid="uid://cpwqv1que8tjc" path="res://Assets/output-onlinepngtools (1).png" id="5_m7naa"]
-[ext_resource type="Texture2D" uid="uid://dgler7hxuc8cp" path="res://Assets/output-onlinepngtools (3).png" id="6_7jiie"]
-[ext_resource type="Texture2D" uid="uid://bkh5vvmsajxx0" path="res://Assets/boot.png" id="7_crmi7"]
+[ext_resource type="Texture2D" uid="uid://cpwqv1que8tjc" path="res://assets/output-onlinepngtools (1).png" id="5_m7naa"]
+[ext_resource type="Texture2D" uid="uid://dgler7hxuc8cp" path="res://assets/output-onlinepngtools (3).png" id="6_7jiie"]
+[ext_resource type="Texture2D" uid="uid://bkh5vvmsajxx0" path="res://assets/boot.png" id="7_crmi7"]
 
 [sub_resource type="Resource" id="Resource_vsiqm"]
 script = ExtResource("3_j82ee")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp55ertf6rqib"
-path="res://.godot/imported/teris9.png-a0ab3032929fb24263e2f577b06f5570.ctex"
+path="res://.godot/imported/teris9.png-dac48a098256617ba3bfc9f58216ea22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/teris9.png"
-dest_files=["res://.godot/imported/teris9.png-a0ab3032929fb24263e2f577b06f5570.ctex"]
+source_file="res://assets/teris9.png"
+dest_files=["res://.godot/imported/teris9.png-dac48a098256617ba3bfc9f58216ea22.ctex"]
 
 [params]
 

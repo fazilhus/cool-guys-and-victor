@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf2v5ayh75uhc"]
+[gd_scene load_steps=3 format=3 uid="uid://b7op4jmj2ywvh"]
 
 [ext_resource type="Texture2D" uid="uid://b1dvrgx0d6ytu" path="res://icon.svg" id="1_21fa6"]
-[ext_resource type="Script" path="res://scripts/temp_card_2.gd" id="1_gejc7"]
+
+[sub_resource type="GDScript" id="GDScript_7eklr"]
+script/source = "extends Control
+class_name TempCard2
+"
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(128, 128)
@@ -12,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
-script = ExtResource("1_gejc7")
+script = SubResource("GDScript_7eklr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

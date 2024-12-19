@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co47hc8v0p54p"
-path="res://.godot/imported/number-2-hq-image-japaneseclass-13.png-d464e1c0d6f0366ffa6222a6a1fbbb1e.ctex"
+path="res://.godot/imported/number-2-hq-image-japaneseclass-13.png-49d4643df009414848cba62aebfa8cf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/number-2-hq-image-japaneseclass-13.png"
-dest_files=["res://.godot/imported/number-2-hq-image-japaneseclass-13.png-d464e1c0d6f0366ffa6222a6a1fbbb1e.ctex"]
+source_file="res://assets/number-2-hq-image-japaneseclass-13.png"
+dest_files=["res://.godot/imported/number-2-hq-image-japaneseclass-13.png-49d4643df009414848cba62aebfa8cf6.ctex"]
 
 [params]
 

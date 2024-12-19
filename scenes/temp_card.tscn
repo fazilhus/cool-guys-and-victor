@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://ckg1wn30xlw6v"]
 
 [ext_resource type="Script" path="res://scripts/temp_card.gd" id="1_q75nk"]
-[ext_resource type="Texture2D" uid="uid://bd1hbenvfag3f" path="res://Assets/pixelCardAssest_V01.png" id="2_6a3v1"]
+[ext_resource type="Texture2D" uid="uid://bd1hbenvfag3f" path="res://assets/pixelCardAssest_V01.png" id="2_6a3v1"]
 [ext_resource type="Script" path="res://scripts/action_data.gd" id="2_mvtkl"]
 [ext_resource type="Script" path="res://scripts/movement_data.gd" id="3_ocuws"]
-[ext_resource type="Texture2D" uid="uid://b7hn00lpr4gcb" path="res://Assets/Capture3.PNG" id="3_rvhc5"]
+[ext_resource type="Texture2D" uid="uid://b7hn00lpr4gcb" path="res://assets/Capture3.PNG" id="3_rvhc5"]
 [ext_resource type="Script" path="res://scripts/card_data.gd" id="4_uf33w"]
 
 [sub_resource type="Resource" id="Resource_35c4g"]
