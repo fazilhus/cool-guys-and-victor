@@ -23,13 +23,13 @@ func _ready() -> void:
 	dir.list_dir_end()
 	shuffle_and_rebuild_deck()
 	
-func discard(to_be_discarded: Array[Node]) -> void:
+func discard(to_be_discarded: Array) -> void:
 	for card in to_be_discarded:
 		discarded.add_child(card)
 
 func shuffle_and_rebuild_deck():
 	if discarded.get_children().size() == 0:
-		emit_signal("deck_is_empty") #you lose?
+		deck_is_empty.emit()#emit_signal("deck_is_empty") #you lose?
 
 	var new_deck = discarded.get_children()
 	new_deck.shuffle()
