@@ -14,6 +14,8 @@ func _ready() -> void:
 		var file_name = dir.get_next()
 		if file_name == "":
 			break
+		if '.tscn.remap' in file_name:
+			file_name = file_name.trim_suffix('.remap')
 		var card_pkd = load(path + file_name)
 		var card = card_pkd.instantiate()
 		discarded.add_child(card)
@@ -21,13 +23,13 @@ func _ready() -> void:
 	dir.list_dir_end()
 	shuffle_and_rebuild_deck()
 	
-func discard(to_be_discarded: Array[Node]) -> void:
+func discard(to_be_discarded: Array) -> void:
 	for card in to_be_discarded:
 		discarded.add_child(card)
 
 func shuffle_and_rebuild_deck():
 	if discarded.get_children().size() == 0:
-		emit_signal("deck_is_empty") #you lose?
+		deck_is_empty.emit()#emit_signal("deck_is_empty") #you lose?
 
 	var new_deck = discarded.get_children()
 	new_deck.shuffle()

@@ -18,7 +18,7 @@ func _ready() -> void:
 	Main.turn_phase_start.connect(on_turn_phase_start)
 	Main.turn_phase_player.connect(on_turn_phase_player_start)
 	Main.turn_phase_enemy.connect(on_turn_phase_enemy)
-	Main.turn_phase_enemy.connect(on_turn_phase_enemy)
+	Main.turn_phase_end.connect(on_turn_phase_end)
 
 	for child in hand.get_children():
 		if child is HandUI:
